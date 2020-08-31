@@ -12,8 +12,7 @@ class ArticleFormTest extends WebTestCase
             $crawler = $client->submitForm('Sign in', [
                 'email' => 'admin@admin.com',
                 'password' => 'admin']);
-            $this->assertPageTitleContains('Tous les articles');
-
+            $this->assertSame(1, $crawler->filter('body:contains("article")')->count());
         }
         public function testloginPage()
         {
