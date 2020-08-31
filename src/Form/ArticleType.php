@@ -34,6 +34,7 @@ class ArticleType extends AbstractType
                         'mimeTypes' => [
                             'image/jpeg',
                             'image/png',
+                            'image/webp'
                         ],
                         'mimeTypesMessage' => 'images jpeg et png uniquement',
                     ])

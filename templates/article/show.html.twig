@@ -7,11 +7,12 @@
 
     <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ article.id }}</td>
-            </tr>
-            <tr>
+        <tr>
+            <th>Image</th>
+            <td><img src="{{ asset('assets/uploads/')~article.image }}" alt="photo de l'article" width="75px"></td>
+        </tr>
+
+        <tr>
                 <th>Titre</th>
                 <td>{{ article.titre }}</td>
             </tr>
@@ -19,16 +20,13 @@
                 <th>Contenu</th>
                 <td>{{ article.contenu }}</td>
             </tr>
-            <tr>
-                <th>Image</th>
-                <td>{{ article.image }}</td>
-            </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('article_index') }}">back to list</a>
-
+    <a href="{{ path('article_index') }}">Retour aux articles</a>
+    {% if app.user %}
     <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
 
     {{ include('article/_delete_form.html.twig') }}
+    {% endif %}
 {% endblock %}

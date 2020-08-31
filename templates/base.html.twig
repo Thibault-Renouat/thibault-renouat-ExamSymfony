@@ -7,12 +7,20 @@
             <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css') }}">
 
         {% endblock %}
+        <style>
+            body{
+                width: 90%;
+                margin: auto;
+
+            }
+
+        </style>
     </head>
     <body>
+    <a href="{{ path('article_index') }}">Accueil</a>&nbsp;
         {% block body %}{% endblock %}
         {% block javascripts %}
             <link rel="stylesheet" href="{{ asset('assets/js/bootstrap.js') }}">
-
         {% endblock %}
     </body>
 </html>
