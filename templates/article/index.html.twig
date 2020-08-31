@@ -4,9 +4,12 @@
 
 {% block body %}
 
-    <a href="{{ path ('app_login') }}">Se connecter</a>
+    <a href="{{ path ('app_login') }}">Se connecter</a>&nbsp;
     {% if app.user %}
-        <a href="{{ path ('app_logout') }}">Se déconnecter</a>
+        <a href="{{ path ('app_logout') }}">Se déconnecter</a>&nbsp;
+    {% endif %}
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('app_register') }}">Enregistrer un journaliste</a>&nbsp;
     {% endif %}
 
     <h1>Tous les articles</h1>
@@ -35,9 +38,9 @@
 
                 <td>
                     <a href="{{ path('article_show', {'id': article.id}) }}">Détail</a><br>
-{#                    {% if app.user %}#}
-{#                        <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>#}
-{#                    {% endif %}#}
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
+                    {% endif %}
                 </td>
 
 
@@ -49,5 +52,7 @@
         {% endfor %}
         </tbody>
     </table>
-    {#    {{ dump(app.user) }}#}
+    {% if is_granted('ROLE_ADMIN') %}
+        {{ dump(app.user) }}
+    {% endif %}
 {% endblock %}

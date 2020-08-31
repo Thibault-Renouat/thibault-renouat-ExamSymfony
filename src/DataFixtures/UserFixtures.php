@@ -33,6 +33,18 @@ class UserFixtures extends Fixture
             )
         );
         $manager->persist($user);
+
+        $userAdmin= new User();
+        $userAdmin->setEmail('admin@admin.com');
+        $userAdmin->setRoles(['ROLE_USER', 'ROLE_ADMIN']);
+        $userAdmin->setPassword(
+            $this->passwordEncoder->encodePassword(
+                $userAdmin,
+                'admin'
+            )
+        );
+        $manager->persist($userAdmin);
+
         $manager->flush();
     }
 }
