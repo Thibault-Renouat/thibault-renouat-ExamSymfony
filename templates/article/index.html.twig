@@ -30,14 +30,14 @@
             <tr>
                 {#                <td>{{ article.id }}</td>#}
                 <td>{{ article.titre }}</td>
-                <td><img src="{{ asset('assets/uploads/')~article.image }}" alt="photo de l'article" width="200 px"></td>
+                <td><img src="{{ asset('assets/uploads/')~article.image }}" alt="photo de l'article" width="100 px" ></td>
 
 
                 <td>
-                    <a href="{{ path('article_show', {'id': article.id}) }}">Détail</a>
-                    {% if app.user %}
-                        <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
-                    {% endif %}
+                    <a href="{{ path('article_show', {'id': article.id}) }}">Détail</a><br>
+{#                    {% if app.user %}#}
+{#                        <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>#}
+{#                    {% endif %}#}
                 </td>
 
 

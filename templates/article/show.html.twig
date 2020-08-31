@@ -25,8 +25,8 @@
 
     <a href="{{ path('article_index') }}">Retour aux articles</a>
     {% if app.user %}
-    <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
+{#    <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>#}
 
-    {{ include('article/_delete_form.html.twig') }}
+{#    {{ include('article/_delete_form.html.twig') }}#}
     {% endif %}
 {% endblock %}
