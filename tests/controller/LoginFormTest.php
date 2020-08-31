@@ -14,12 +14,6 @@ class ArticleFormTest extends WebTestCase
                 'password' => 'admin']);
             $this->assertSame(1, $crawler->filter('body:contains("article")')->count());
         }
-        public function testloginPage()
-        {
-            $client = static::createClient();
-            $client->request('GET', '/login');
-            $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        }
 
 
 

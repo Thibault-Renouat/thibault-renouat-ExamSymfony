@@ -53,6 +53,6 @@
         </tbody>
     </table>
     {% if is_granted('ROLE_ADMIN') %}
-        {{ dump(app.user) }}
+{#        {{ dump(app.user) }}#}
     {% endif %}
 {% endblock %}
