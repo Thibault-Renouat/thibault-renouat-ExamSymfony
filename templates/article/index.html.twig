@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article index{% endblock %}
+
+{% block body %}
+
+    <a href="{{ path ('app_login') }}">Se connecter</a>
+
+    <h1>Article index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+{#                <th>Id</th>#}
+                <th>Titre</th>
+                <th>Contenu</th>
+                <th>Image</th>
+                {% if app.user %}
+                <th>actions</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+        {% for article in articles %}
+            <tr>
+{#                <td>{{ article.id }}</td>#}
+                <td>{{ article.titre }}</td>
+                <td>{{ article.contenu }}</td>
+                <td><img src="{{ asset('assets/uploads/')~article.image }}" alt="photo de l'article" width="75px"></td>
+
+                {% if app.user %}
+                    <td>
+                        <a href="{{ path('article_show', {'id': article.id}) }}">show</a>
+                        <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
+                    </td>
+
+                {% endif %}
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('article_new') }}">Create new</a>
+
+{#    {{ dump(app.user) }}#}
+{% endblock %}
